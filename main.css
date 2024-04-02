@@ -5,6 +5,21 @@ body {
     margin: 0px;
 }
 
+div.menu {
+    color: rgb(0, 4, 255);
+    text-align: center;
+    font-size: 18px;
+    border: 7px solid #7c21c780;
+    border-radius: 20px;
+    width: 300px;
+    margin: 0 auto;
+}
+
+div:hover {
+    background-color: #85464630;
+    box-shadow: 0 0 15px #00000030;
+}
+
 a {
     color: green;
     text-decoration: none;
@@ -24,7 +39,7 @@ a:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(59, 43, 19);
     text-decoration: underline;
-    transition: 0.3sпш;
+    transition: 0.3s;
 }
 
 a:active {
