@@ -6,5 +6,25 @@ body {
 }
 
 a {
-    text-decoration: none;
+
+}
+
+a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(59, 43, 19);
+}
+
+a:active {
+    color: black;
+    background-color: bisque;
+    opacity: 0.2;
 }
