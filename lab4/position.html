@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна, Лабораторная 4</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+    <style>
+        div {
+            width: 300px;
+            height: 70px;
+            background-color: white;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+            line-height: 70px;
+            text-align: center;
+        }
+        .static {
+            position: relative;
+            z-index: 5;
+        }
+        .position-relative {
+            position: relative;
+            left: 160px;
+            top: -130px;
+            z-index: 1;
+        }
+        .position-relative:hover {
+            z-index: 8;
+        }
+        .position-absolute {
+            position: absolute;
+            left: 300px;
+        }
+        .position-absolute:hover {
+            width: 350px;
+            height: 80px;
+            background-color: aqua;
+            box-shadow: 5px 5px red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 4
+        <hr>
+    </header>
+
+    <main>
+        <div class="static">static</div>
+        <div class="static">static</div>
+        <div class="position-relative">relative</div>
+        <div>static</div>
+        <div>static</div>
+        <div class="position-absolute">static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
