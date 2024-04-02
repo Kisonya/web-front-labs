@@ -6,21 +6,25 @@ body {
 }
 
 a {
-
+    color: green;
+    text-decoration: none;
+    transition: 1s 2s;
 }
 
 a:link {
     color: white;
-    text-decoration: underline;
+
 }
 
 a:visited {
-    color: red;
+    background-color: rgb(180, 177, 177);
 }
 
 a:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(59, 43, 19);
+    text-decoration: underline;
+    transition: 0.3sпш;
 }
 
 a:active {
