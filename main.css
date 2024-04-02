@@ -5,6 +5,22 @@ body {
     margin: 0px;
 }
 
+main {
+    padding: 10px 20px 95px;
+}
+
+footer {
+    background-color: black;
+    color: lightgreen;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
 div.menu {
     color: rgb(0, 4, 255);
     text-align: center;
