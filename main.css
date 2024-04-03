@@ -1,6 +1,10 @@
+header{
+    color: #680d3a;
+    background-color: #db7fa2;
+}
+
 body {
-    background-color: lightblue;
-    color: maroon;
+    background-color: rgb(247, 220, 243);
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
 }
@@ -9,17 +13,7 @@ main {
     padding: 10px 20px 95px;
 }
 
-footer {
-    background-color: black;
-    color: lightgreen;
-    padding: 10px;
-    font-size: 16pt;
-    text-align: right;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
+
 
 div.menu {
     color: rgb(0, 4, 255);
@@ -62,4 +56,16 @@ a:active {
     color: black;
     background-color: bisque;
     opacity: 0.2;
+}
+
+footer {
+    color: #680d3a;
+    background-color: #db7fa2;
+    padding: 10px;
+    font-size: 16pt;
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
