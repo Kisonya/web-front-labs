@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторная 5</title>
+    <link rel="stylesheet" href="../../main.css">
+    <link rel="icon" href="../../ico/favicon.ico">
+    <link rel="icon" href="../../ico/favicon-32x32.png">
+    <link rel="icon" href="../../ico/favicon-16x16.png">
+    <script>
+        function showSum() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a + b;
+            alert(" Сумма " + a + " и " + b +  " равна " + result);
+        }
+        function showAuthor() {
+            let author = "Автор страницы: \nСкобель Софья Валентиновна";
+            alert(author);
+        }
+        function dbclick () {
+            let hello = "Приветствую вас на моей странице! \nМожешь лучше — делай сам:)";
+            alert (hello)
+        }
+    </script>
+    <style>
+        .massage_menu {
+            text-align: center;
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 300px;
+        }
+        .message {
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 50px;
+            padding: 15px;
+            border: 7px dashed;
+            background-color: rgb(252, 210, 229);
+            color: rgb(77, 5, 65);
+            border-radius: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
+        <label>Второе число: <input type="number" value="7891" id="numberB"></label><br>
+
+        <div class="massage_menu">
+            <div class="message" onclick="showSum()">Найти сумму чисел</div>
+            <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+        </div>
+    </main>
+
+    <footer style="cursor: pointer;" ondblclick="dbclick ()">
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
