@@ -12,11 +12,34 @@
         function showSum() {
             let inputA = document.getElementById('numberA');
             let inputB = document.getElementById('numberB');
-
             let a = parseInt(inputA.value);
             let b = parseInt(inputB.value);
             let result = a + b;
             alert(" Сумма " + a + " и " + b +  " равна " + result);
+        }
+        function showMult() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a * b;
+            alert(" Произведение " + a + " и " + b +  " равно " + result);
+        }
+        function showSbtraction() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a - b;
+            alert(" Вычитание " + a + " и " + b +  " равно " + result);
+        }
+        function showDivision() {
+            let inputA = document.getElementById('numberA');
+            let inputB = document.getElementById('numberB');
+            let a = parseInt(inputA.value);
+            let b = parseInt(inputB.value);
+            let result = a / b;
+            alert(" Деление " + a + " и " + b +  " равно " + result);
         }
         function showAuthor() {
             let author = "Автор страницы: \nСкобель Софья Валентиновна";
@@ -25,6 +48,13 @@
         function dbclick () {
             let hello = "Приветствую вас на моей странице! \nМожешь лучше — делай сам:)";
             alert (hello)
+        }
+        function changeOutput(buttonNum, backColor, textColor,borderColor) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor =  backColor;
+            output.style.color = textColor;
+            output.style.borderColor = borderColor;
         }
     </script>
     <style>
@@ -44,6 +74,11 @@
             color: rgb(77, 5, 65);
             border-radius: 30%;
         }
+        #output {
+            border: 3px solid;
+            width: 300px;
+            height: 40px;
+        }
     </style>
 </head>
 
@@ -58,8 +93,20 @@
 
         <div class="massage_menu">
             <div class="message" onclick="showSum()">Найти сумму чисел</div>
+            <div class="message" onclick="showMult()">Найти произведение чисел</div>
+            <div class="message" onclick="showSbtraction()">Найти вычитания чисел</div>
+            <div class="message" onclick="showDivision()">Найти деления чисел</div>
             <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
         </div>
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', 'blue')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', 'green')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'white', 'brown', 'orange')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'blue', 'black', 'purple')">
+        </div>
+
+        <div id="output"</div>
+
     </main>
 
     <footer style="cursor: pointer;" ondblclick="dbclick ()">
