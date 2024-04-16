@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторные 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+<style>
+    .product {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .total-price {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+    #product-basket {
+    border: 2px solid #000; /* Черная рамка толщиной 2px */
+    padding: 200px; /* Отступ внутри рамки */
+    margin-top: -390px; /* Отцентровать корзину на странице с отступом сверху и снизу */
+    margin-left: -20px;
+    width: fit-content; /* Ширина корзины будет соответствовать содержимому */
+    background-color: #f9f9f9; /* Светло-серый фон внутри рамки */
+    box-shadow: 0 10px 10px rgba(63, 57, 57, 0.2); /* Тень для рамки, чтобы добавить глубину */
+  }
+</style>
+<script>
+    function calculateTotal() { //цены на товары
+        const prices = {
+            apples: 100, 
+            pears: 80, 
+            oranges: 150,
+            bananas: 120,
+            grapes: 250
+    }
+
+        let total = 0;
+        //перебираем товары и считаем общую стоимость
+        for (const product in prices) {
+            const quantity = document.getElementById(product).value || 0;
+            total += quantity * prices[product];
+        }
+
+        //отображаем общую сумму
+        document.getElementById('totalPrice').textContent = `Общая цена: ${total} p`;
+    }
+     // Функция сброса формы
+     function resetForm() {
+        // Сброс значений количества товаров
+        document.getElementById('apples').value = 0;
+        document.getElementById('pears').value = 0;
+        document.getElementById('oranges').value = 0;
+        document.getElementById('bananas').value = 0;
+        document.getElementById('grapes').value = 0;
+
+        // Сброс отображения общей суммы
+        document.getElementById('totalPrice').textContent = 'Общая цена: 0 р';
+    }
+</script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+
+    <main>
+        <h1>Корзина товаров</h1>
+        <div class="product">
+            <label for="apples">Яблоки (100р/шт):</label>
+            <input type="number" id="apples" value="0" min="0" placeholder="Введите количество"/>
+          </div>
+          
+          <div class="product">
+            <label for="pears">Груши (80р/шт):</label>
+            <input type="number" id="pears" value="0" min="0" placeholder="Введите количество"/>
+          </div>
+          
+          <div class="product">
+            <label for="oranges">Апельсины (150р/шт):</label>
+            <input type="number" id="oranges" value="0" min="0" placeholder="Введите количество"/>
+          </div>
+          
+          <div class="product">
+            <label for="bananas">Бананы (120р/шт):</label>
+            <input type="number" id="bananas" value="0" min="0" placeholder="Введите количество"/>
+          </div>
+          
+          <div class="product">
+            <label for="grapes">Виноград (250р/шт):</label> <!-- Добавлен новый товар -->
+            <input type="number" id="grapes" value="0" min="0" placeholder="Введите количество"/>
+          </div>
+          
+          <button onclick="calculateTotal()">Рассчитать</button>
+          <button onclick="resetForm()">Сбросить</button>
+          
+          <div id="totalPrice" class="total-price">
+            Общая цена: 0 р
+          </div>
+
+          <div id="product-basket">
+            <!-- Содержимое корзины -->
+          </div>    
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
