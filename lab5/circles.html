@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторные 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+<style>
+    .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: inline-block;
+        text-align: center;
+        line-height: 100px;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        position: absolute;
+        transition: opacity 0.5s, width 0.5s, height 0.5s;
+    }
+</style>   
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <script>
+        function hideCircle(event) {
+            var circle = event.target;
+            circle.style.opacity = '0';
+            circle.style.width = '0';
+            circle.style.height = '0';
+            setTimeout(function() {
+                circle.style.display = 'none';
+            }, 500);
+        }
+    
+        function resetCircles() {
+            var circles = document.querySelectorAll('.circle');
+            circles.forEach(function(circle) {
+                circle.style.display = 'inline-block';
+                circle.style.opacity = '1';
+                circle.style.width = '100px';
+                circle.style.height = '100px';
+            });
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            var main = document.querySelector('main');
+            var colors = ['#ff6347', '#ffd700', '#7fffd4', '#dda0dd', '#00ffff', '#ffa500', '#00ff00', '#8a2be2', '#a52a2a', '#20b2aa'];
+    
+            for (var i = 0; i < 10; i++) {
+                var circle = document.createElement('div');
+                circle.className = 'circle';
+                circle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                circle.style.color = '#fff';
+                circle.style.left = Math.random() * (window.innerWidth - 100) + 'px';
+                circle.style.top = Math.random() * (window.innerHeight - 100) + 'px';
+                circle.style.fontSize = Math.random() * 20 + 10 + 'px';
+                circle.innerText = i + 1;
+                circle.addEventListener('click', hideCircle);
+                main.appendChild(circle);
+            }
+        });
+    </script>
+    <main>
+        <button onclick="resetCircles()">Начало</button>
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
