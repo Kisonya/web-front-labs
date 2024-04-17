@@ -19,6 +19,12 @@
             document.getElementById('grayscaleOutput').innerText = value;
             document.getElementById('grayscaleImage').style.filter = 'grayscale(' + value + ')';
         }
+
+        function hueRotate() {
+            let value = document.getElementById('hue-rotateValue').value + 'deg';
+            document.getElementById('hue-rotateOutput').innerText = value;
+            document.getElementById('hue-rotateImage').style.filter = 'hue-rotate(' + value + ')';
+            }
     </script>
 </head>
 
@@ -40,6 +46,15 @@
             <span id="grayscaleOutput"></span>
         </div>
         <div><img src="красная панда.jpg" id="grayscaleImage"></div>     
+
+        <div>
+            Фильтр оттенков цвета:
+            <input type="range" min="0" max="360" value="0" onchange="hueRotate()" id="hue-rotateValue">
+            <span id="hue-rotateOutput"></span>
+            </div>
+            <div><img src="красная панда.jpg" id="hue-rotateImage"></div>
+
+
     </main>
 
     <footer>
