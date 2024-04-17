@@ -36,7 +36,13 @@
             let value = document.getElementById('saturateValue').value + '%';
             document.getElementById('saturateOutput').innerText = value;
             document.getElementById('saturateImage').style.filter = 'saturate(' + value + ')';
-            }
+        }
+
+        function sepia() {
+            let value = document.getElementById('sepiaValue').value + '%';
+            document.getElementById('sepiaOutput').innerText = value;
+            document.getElementById('sepiaImage').style.filter = 'sepia(' + value + ')';
+        }
     </script>
 </head>
 
@@ -79,6 +85,12 @@
             <span id="saturateOutput"></span>
             </div>
             <div><img src="красная панда.jpg" id="saturateImage"></div>
+        <div>
+            Фильтр сепия:
+            <input type="range" min="0" max="100" value="0" onchange="sepia()" id="sepiaValue">
+            <span id="sepiaOutput"></span>
+            </div>
+            <div><img src="красная панда.jpg" id="sepiaImage"></div>
 
     </main>
 
