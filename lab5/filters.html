@@ -25,6 +25,13 @@
             document.getElementById('hue-rotateOutput').innerText = value;
             document.getElementById('hue-rotateImage').style.filter = 'hue-rotate(' + value + ')';
             }
+
+        function invert() {
+            let value = document.getElementById('invertValue').value + '%';
+            document.getElementById('invertOutput').innerText = value;
+            document.getElementById('invertImage').style.filter = 'invert(' + value + ')';
+            }
+
     </script>
 </head>
 
@@ -54,6 +61,12 @@
             </div>
             <div><img src="красная панда.jpg" id="hue-rotateImage"></div>
 
+        <div>
+            Фильтр инвертирование цвета:
+            <input type="range" min="0" max="100" value="0" onchange="invert()" id="invertValue">
+            <span id="invertOutput"></span>
+            </div>
+            <div><img src="красная панда.jpg" id="invertImage"></div>
 
     </main>
 
