@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторные 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+
+    <style>
+        div.game {
+            width: 400px;
+            margin: 10px auto;
+            border: 3px solid black;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            color: indigo;
+        }       
+    </style>
+    <script>
+        let number;
+        function startGame() {
+            number = Math.floor( Math.random() * 100) + 1;
+            let screens = document.getElementsByClassName('game');
+            screens[0].style.display = 'none';
+            screens[1].style.display = 'block';
+        }
+
+        function guess(){
+            let input = document.getElementById('user-number');
+            let userNumber = parseInt(input.value);
+        }
+    </script>
+</head>
+
+<body>
+    <header onclick="showAuthor()">
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div class="game">
+            <button onclick="startGame()">
+                Сыграть в игру
+            </button>
+        </div>
+
+        <div class="game" style="display: none;">
+            <h1>Угадай число!</h1>
+            Задумано число от 1 до 100. Угадайте, какое?<br>
+            <input type="number" value="" min="1" max="100"><br>
+            <button>Угадать</button>
+            <div id="result"></div>
+        </div>
+
+        <div class="game" style="display: none;">
+            <h1>Поздравляем, вы выиграли!</h1>
+            <div>
+                Задуманое число: <span id="number"></span>
+            </div>
+            <div>
+                Количество попыток: <span id="try-count"></span>
+            </div>
+            <div>
+                <button>Сыграть еще раз</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
