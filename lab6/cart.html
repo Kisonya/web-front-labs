@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторные 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+        <div>
+            <label>Мой баланс: <input type="number" id="balance" value="100"></label><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Цена</th>
+                        <th>Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Молоко</td>
+                        <td>50 ₽</td>
+                        <td><input type="number" id="milk" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Хлеб белый</td>
+                        <td>20 ₽</td>
+                        <td><input type="number" id="bread" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Масло</td>
+                        <td>200 ₽</td>
+                        <td><input type="number" id="butter" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Сыр</td>
+                        <td>150 ₽</td>
+                        <td><input type="number" id="cheese" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Яйца</td>
+                        <td>30 ₽</td>
+                        <td><input type="number" id="eggs" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Сахар</td>
+                        <td>40 ₽</td>
+                        <td><input type="number" id="sugar" value="0" min="0"></td>
+                    </tr>
+                    <tr>
+                        <td>Чай</td>
+                        <td>60 ₽</td>
+                        <td><input type="number" id="tea" value="0" min="0"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="calculate()">OK</button><br>
+            <div id="result"></div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+
+    <script>
+        function calculate() {
+            const balance = parseInt(document.getElementById('balance').value);
+            const milk = parseInt(document.getElementById('milk').value);
+            const bread = parseInt(document.getElementById('bread').value);
+            const butter = parseInt(document.getElementById('butter').value);
+            const cheese = parseInt(document.getElementById('cheese').value);
+            const eggs = parseInt(document.getElementById('eggs').value);
+            const sugar = parseInt(document.getElementById('sugar').value);
+            const tea = parseInt(document.getElementById('tea').value);
+
+            const milkPrice = 50;
+            const breadPrice = 20;
+            const butterPrice = 200;
+            const cheesePrice = 150;
+            const eggsPrice = 30;
+            const sugarPrice = 40;
+            const teaPrice = 60;
+
+            const total = (milk * milkPrice) + (bread * breadPrice) + (butter * butterPrice) +
+                          (cheese * cheesePrice) + (eggs * eggsPrice) + (sugar * sugarPrice) + (tea * teaPrice);
+            const resultDiv = document.getElementById('result');
+
+            if (milk < 0 || bread < 0 || butter < 0 || cheese < 0 || eggs < 0 || sugar < 0 || tea < 0) {
+                resultDiv.innerHTML = 'Количество товара не может быть отрицательным!';
+                return;
+            }
+
+            if (milk === 0 && bread === 0 && butter === 0 && cheese === 0 && eggs === 0 && sugar === 0 && tea === 0) {
+                resultDiv.innerHTML = 'Выберите хотя бы один товар!';
+                return;
+            }
+
+            if (total > balance) {
+                resultDiv.innerHTML = `Итог: ${total} ₽. У вас недостаточно денег!`;
+            } else {
+                resultDiv.innerHTML = `Итог: ${total} ₽. Покупка успешна!`;
+            }
+        }
+    </script>
+</body>
+</html>
