@@ -40,6 +40,21 @@ function addNewBlock() {
                 container.appendChild(newBlock); // Добавляем блок в контейнер
             }
         }
+
+        function add20_50() {
+            let main = document.querySelector('#blocksContainer');
+            for (let i = 20; i <= 50; i += 2.5) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'lightblue'; // Отличающийся цвет фона
+                newBlock.style.height = '60px'; // Отличающаяся высота блока
+                newBlock.style.width = '60px'; // Отличающаяся ширина блока
+                newBlock.style.border = '1px solid green'; // Отличающийся цвет и ширина рамки
+                newBlock.style.margin = '5px'; // Внешние отступы
+                newBlock.innerHTML = `${i}`;
+                main.appendChild(newBlock);
+    }
+}
+
     </script>
 </head>
 
@@ -52,7 +67,9 @@ function addNewBlock() {
         <input type="number" id="blockCount" placeholder="Введите количество блоков" />
         <button onclick="addNewBlock()">Добавить блок</button> 
         <button onclick="addNewBlocks()">Добавить блоки</button>
+        <button onclick="add20_50()">20 => 50</button>
         <div id="blocksContainer"></div> <!-- Контейнер для блоков -->
+
     </main>
 
     <footer>
