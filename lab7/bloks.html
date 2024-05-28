@@ -9,7 +9,7 @@
     <link rel="icon" href="../ico/favicon-32x32.png">
     <link rel="icon" href="../ico/favicon-16x16.png">
     <script>
-function addNewBlock() {
+        function addNewBlock() {
             let newBlock = document.createElement('div');
             newBlock.style.backgroundColor = 'orange';
             newBlock.style.height = '40px'; // Устанавливаем высоту блока
@@ -52,9 +52,44 @@ function addNewBlock() {
                 newBlock.style.margin = '5px'; // Внешние отступы
                 newBlock.innerHTML = `${i}`;
                 main.appendChild(newBlock);
-    }
-}
+                }
+        }
 
+        function add10toMinus80() {
+            let container = document.querySelector('#circleContainer'); // Ищем контейнер для кругов
+            container.innerHTML = ''; // Очищаем контейнер перед добавлением новых кругов
+            for (let i = 10; i >= -80; i -= 3) {
+                let newCircle = document.createElement('div');
+                newCircle.style.width = '30px';
+                newCircle.style.height = '30px';
+                newCircle.style.borderRadius = '50%'; // Делаем блоки круглыми
+                newCircle.style.backgroundColor = 'red'; // Устанавливаем цвет фона
+                newCircle.style.display = 'inline-block'; // Выводим круги в строчку
+                newCircle.style.textAlign = 'center'; // Выравниваем текст по центру
+                newCircle.style.lineHeight = '20px'; // Центрируем текст по вертикали
+                newCircle.style.margin = '5px'; // Устанавливаем внешние отступы
+                newCircle.textContent = i; // Устанавливаем текст круга
+                container.appendChild(newCircle); // Добавляем круг в контейнер
+            }
+        }
+
+        function addBlocksWithOpacity() {
+            let container = document.querySelector('#opacityContainer'); // Ищем контейнер для блоков с opacity
+            container.innerHTML = ''; // Очищаем контейнер перед добавлением новых блоков
+            for (let i = 1; i <= 10; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.width = '40px';
+                newBlock.style.height = '40px';
+                newBlock.style.backgroundColor = 'blue';
+                newBlock.style.opacity = i / 10; // Устанавливаем opacity от 0.1 до 1.0
+                newBlock.style.display = 'inline-block'; // Выводим блоки в строчку
+                newBlock.style.textAlign = 'center'; // Выравниваем текст по центру
+                newBlock.style.lineHeight = '40px'; // Центрируем текст по вертикали
+                newBlock.style.margin = '5px'; // Устанавливаем внешние отступы
+                newBlock.textContent = i; // Устанавливаем текст блока
+                container.appendChild(newBlock); // Добавляем блок в контейнер
+            }
+        }
     </script>
 </head>
 
@@ -68,8 +103,11 @@ function addNewBlock() {
         <button onclick="addNewBlock()">Добавить блок</button> 
         <button onclick="addNewBlocks()">Добавить блоки</button>
         <button onclick="add20_50()">20 => 50</button>
+        <button onclick="add10toMinus80()">10 => -80</button>
+        <button onclick="addBlocksWithOpacity()">Добавить блоки с opacity</button>
         <div id="blocksContainer"></div> <!-- Контейнер для блоков -->
-
+        <div id="circleContainer" style="margin-top: 20px;"></div> <!-- Контейнер для кругов -->
+        <div id="opacityContainer" style="margin-top: 20px;"></div> <!-- Контейнер для блоков с opacity -->
     </main>
 
     <footer>
