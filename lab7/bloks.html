@@ -9,26 +9,50 @@
     <link rel="icon" href="../ico/favicon-32x32.png">
     <link rel="icon" href="../ico/favicon-16x16.png">
     <script>
-        function addNewBlock() {
+function addNewBlock() {
             let newBlock = document.createElement('div');
             newBlock.style.backgroundColor = 'orange';
             newBlock.style.height = '40px'; // Устанавливаем высоту блока
             newBlock.style.width = '100px'; // Устанавливаем ширину блока
             newBlock.style.border = '2px solid blue'; // Устанавливаем цвет и ширину рамки
             newBlock.style.margin = '10px'; // Добавляем внешние отступы
-            document.querySelector('main').appendChild(newBlock); // Добавляем блок в элемент <main>
+            document.querySelector('#blocksContainer').appendChild(newBlock); // Добавляем блок в контейнер
+        }
 
+        function addNewBlocks() {
+            let container = document.querySelector('#blocksContainer'); // Ищем контейнер блоков
+            container.innerHTML = ''; // Очищаем контейнер перед добавлением новых блоков
+            let blockCount = parseInt(document.querySelector('#blockCount').value, 10);
+            if (isNaN(blockCount) || blockCount <= 0) {
+                alert('Пожалуйста, введите корректное количество блоков.');
+                return;
+            }
+            for (let i = 0; i < blockCount; i++) { // Используем значение blockCount для цикла
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'orange';
+                newBlock.style.height = '40px'; // Устанавливаем высоту блока
+                newBlock.style.width = `${100 + i * 10}px`; // Устанавливаем ширину блока, увеличивая её в цикле
+                newBlock.style.border = '2px solid black'; // Устанавливаем границу
+                newBlock.style.margin = '10px'; // Устанавливаем внешние отступы
+                newBlock.style.padding = '5px'; // Устанавливаем внутренние отступы
+                newBlock.innerHTML = `Блок № ${i + 1}: 2*${i}<sup>2</sup> = ${2 * (i * i)}`;
+
+                container.appendChild(newBlock); // Добавляем блок в контейнер
+            }
         }
     </script>
 </head>
 
 <body>
     <header>
-        НГТУ, ФБ, Лабораторная работа 6
+        НГТУ, ФБ, Лабораторная работа 7
     </header>
 
     <main>
-       <button onclick="addNewBlock()">Добавить блок</button> 
+        <input type="number" id="blockCount" placeholder="Введите количество блоков" />
+        <button onclick="addNewBlock()">Добавить блок</button> 
+        <button onclick="addNewBlocks()">Добавить блоки</button>
+        <div id="blocksContainer"></div> <!-- Контейнер для блоков -->
     </main>
 
     <footer>
