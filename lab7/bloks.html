@@ -90,6 +90,29 @@
                 container.appendChild(newBlock); // Добавляем блок в контейнер
             }
         }
+
+        function addColoredCircles() {
+            let container = document.querySelector('#coloredCirclesContainer'); // Ищем контейнер для цветных кругов
+            container.innerHTML = ''; // Очищаем контейнер перед добавлением новых кругов
+            let circleCount = parseInt(document.querySelector('#circleCount').value, 10);
+            if (isNaN(circleCount) || circleCount <= 0) {
+                alert('Пожалуйста, введите корректное количество кругов.');
+                return;
+            }
+            for (let i = circleCount; i >= 1; i--) {
+                let newCircle = document.createElement('div');
+                newCircle.style.width = '40px';
+                newCircle.style.height = '40px';
+                newCircle.style.borderRadius = '50%'; // Делаем блоки круглыми
+                newCircle.style.backgroundColor = i % 2 === 0 ? 'green' : 'red'; // Чередуем цвет круга
+                newCircle.style.display = 'inline-block'; // Выводим круги в строчку
+                newCircle.style.textAlign = 'center'; // Выравниваем текст по центру
+                newCircle.style.lineHeight = '40px'; // Центрируем текст по вертикали
+                newCircle.style.margin = '5px'; // Устанавливаем внешние отступы
+                newCircle.textContent = i; // Устанавливаем текст круга
+                container.appendChild(newCircle); // Добавляем круг в контейнер
+            }
+        }
     </script>
 </head>
 
@@ -106,9 +129,12 @@
         <button onclick="add20_50()">20 => 50</button>
         <button onclick="add10toMinus80()">10 => -80</button>
         <button onclick="addBlocksWithOpacity()">Добавить блоки с opacity</button>
+        <input type="number" id="circleCount" placeholder="Введите количество кругов" />
+        <button onclick="addColoredCircles()">Цветные круги</button>
         <div id="blocksContainer"></div> <!-- Контейнер для блоков -->
         <div id="circleContainer" style="margin-top: 20px;"></div> <!-- Контейнер для кругов -->
         <div id="opacityContainer" style="margin-top: 20px;"></div> <!-- Контейнер для блоков с opacity -->
+        <div id="coloredCirclesContainer" style="margin-top: 20px;"></div> <!-- Контейнер для цветных кругов -->
     </main>
 
 
