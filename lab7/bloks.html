@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторные 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+    <script>
+        function addNewBlock() {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'orange';
+            newBlock.style.height = '40px'; // Устанавливаем высоту блока
+            newBlock.style.width = '100px'; // Устанавливаем ширину блока
+            newBlock.style.border = '2px solid blue'; // Устанавливаем цвет и ширину рамки
+            newBlock.style.margin = '10px'; // Добавляем внешние отступы
+            document.querySelector('main').appendChild(newBlock); // Добавляем блок в элемент <main>
+
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+
+    <main>
+       <button onclick="addNewBlock()">Добавить блок</button> 
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
