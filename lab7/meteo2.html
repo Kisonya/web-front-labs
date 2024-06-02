@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Group 11.png">
+    <title>Скобель Софья Валентиновна.Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body>
+
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <script>
+        async function getWeatherData() {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const temperatures = data.hourly.temperature_2m;
+                const times = data.hourly.time;
+
+                const today = new Date().toISOString().split('T')[0];
+
+                const temp8am = getTemperatureAtTime(today, '08:00', times, temperatures);
+                const temp12pm = getTemperatureAtTime(today, '12:00', times, temperatures);
+                const temp8pm = getTemperatureAtTime(today, '20:00', times, temperatures);
+
+                document.getElementById('temperature-8am').innerText = `${temp8am} °C`;
+                document.getElementById('temperature-12pm').innerText = `${temp12pm} °C`;
+                document.getElementById('temperature-8pm').innerText = `${temp8pm} °C`;
+            } catch (error) {
+                console.error('Ошибка получения данных:', error);
+            }
+        }
+
+        function getTemperatureAtTime(date, time, times, temperatures) {
+            const dateTime = `${date}T${time}`;
+            const index = times.indexOf(dateTime);
+            return index !== -1 ? temperatures[index] : 'Нет данных';
+        }
+
+        getWeatherData();
+    </script>
+    <style>
+        header {
+            text-align: left;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient( #947083, #3D344D);
+            text-align: center;
+            margin-top: 50px;
+            font-family: "TT Norms Regular";
+        }
+        .weather-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .weather-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(73, 73, 73, 0.279);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 500px;
+            margin: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0);
+            transition: all 2s;
+        }
+        .weather-block:hover{
+            box-shadow: 0px 0px 15px white;
+        }
+        .weather-block img {
+            width:100%;
+            margin-bottom: 10px;
+        }
+        .temperature {
+            font-size: 28px;
+            margin: 10px 0;
+            color: white;
+        }
+        h2 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        .ras {
+            margin-top: 200px;
+        }
+        footer {
+            text-align: left;
+        }
+        .time {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: white;
+        }
+        .zag{
+            color: white;
+            font-size: 30px;
+        }
+    
+    </style>
+</head>
+<body>
+    <main>
+        <div class="zag">Погода в Новосибирске</div>
+        <div class="weather-container">
+            <div id="block-8am" class="weather-block ">
+                <div class="time">8:00 утра</div>
+                <img src="../img/utro.png" alt="8:00 утра">
+                <div class="temperature" id="temperature-8am">Загрузка...</div>
+            </div>
+            <div id="block-12pm" class="weather-block ">
+                <div class="time">12:00 дня</div>
+                <img src="../img/den.png" alt="12:00 дня">
+                <div class="temperature" id="temperature-12pm">Загрузка...</div>
+            </div>
+            <div id="block-8pm" class="weather-block ">
+                <div class="time">20:00 вечера</div>
+                <img src="../img/vecher.png" alt="20:00 вечера">
+                <div class="temperature" id="temperature-8pm">Загрузка...</div>
+            </div>
+        </div>
+    </main>
+        <footer>
+            &copy;Скобель Софья. ФБИ-21. 2 курс. 2024
+        </footer>
+</body>
+</html>
+
