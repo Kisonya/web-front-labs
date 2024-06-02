@@ -9,6 +9,7 @@
     <link rel="icon" href="../ico/favicon-32x32.png">
     <link rel="icon" href="../ico/favicon-16x16.png">
     <style>
+        /* Стили для отображения текущего времени в правом верхнем углу */
         #time {
             position: absolute;
             top: 10px;
@@ -20,13 +21,59 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        #seconds {
+        /* Стили для циферблата часов */
+        .clock {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #fff 60%, #ccc);
+            border: 5px solid #000;
+            border-radius: 50%;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .clock.top-left {
+            top: 10px;
+            left: 10px;
+        }
+        .clock.center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        /* Стили для стрелки секунд */
+        .second-hand {
+            width: 2px;
+            height: 90px;
+            background-color: #ff0000;
+            position: absolute;
+            top: 10px;
+            transform-origin: bottom center; /* Точка вращения внизу по центру */
+        }
+        /* Центральная точка для стрелок */
+        .center-point {
+            width: 10px;
+            height: 10px;
+            background-color: #000;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 72px;
-            color: #ff0000;
+            border-radius: 50%;
+        }
+        /* Стили для времени над стрелкой */
+        .clock-time {
+            position: relative;
+            font-size: 18px;
+            color: #4CAF50;
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
     </style>
     <script src="time.js"></script>
@@ -39,7 +86,16 @@
     </header>
 
     <main>
-        <div id="seconds">00</div>
+        <!-- Циферблат часов по центру -->
+        <div class="clock center">
+            <!-- Время над стрелкой -->
+            <div class="clock-time" id="clock-time-center">00:00:00</div>
+            <!-- Стрелка секунд -->
+            <div class="second-hand" id="second-hand-center"></div>
+            <!-- Центральная точка -->
+            <div class="center-point"></div>
+        </div>
+
     </main>
 
     <footer>
