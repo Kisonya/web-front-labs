@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс акций X5 Retail Group</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+    <script>
+        function showStockPrices() {
+            // Объявляем массивы с датами и ценами акций
+            const dates = ["2023-05-01", "2023-05-02", "2023-05-03", "2023-05-04", "2023-05-05", "2023-05-06", "2023-05-07", "2023-05-08", "2023-05-09", "2023-05-10"];
+            const prices = [22.00, 25.15, 25.13, 25.08, 15.33, 25.75, 23.40, 23.40, 23.50, 20.50];
+
+            // Проходим по каждому курсу акций в массиве
+            let table = document.getElementById('stock-table');
+            for (let i = 0; i < prices.length; i++) {
+                let tr = document.createElement('tr');
+                let tdDate = document.createElement('td');
+                let tdPrice = document.createElement('td');
+                let tdDifference = document.createElement('td');
+
+                // Устанавливаем текст ячеек
+                tdDate.innerText = dates[i];
+                tdPrice.innerText = prices[i];
+                if (i === 0) {
+                    tdDifference.innerText = '-';
+                } else {
+                    tdDifference.innerText = (prices[i] - prices[i - 1]).toFixed(2);
+                }
+
+                // Добавляем ячейки в строку
+                tr.appendChild(tdDate);
+                tr.appendChild(tdPrice);
+                tr.appendChild(tdDifference);
+                // Добавляем строку в таблицу
+                table.appendChild(tr);
+            }
+
+            // Вычисляем среднее значение, максимальное и минимальное значения стоимости акций
+            let sum = 0;
+            let max = prices[0];
+            let min = prices[0];
+            for (let i = 0; i < prices.length; i++) {
+                sum += prices[i];
+                if (prices[i] > max) {
+                    max = prices[i];
+                }
+                if (prices[i] < min) {
+                    min = prices[i];
+                }
+            }
+            let average = (sum / prices.length).toFixed(2);
+
+            // Выводим результаты в блок "stock-detail"
+            let stockDetailDiv = document.getElementById('stock-detail');
+            stockDetailDiv.innerText = `Средняя цена акции: ${average}\nМаксимальная цена акции: ${max}\nМинимальная цена акции: ${min}`;
+
+            // Скрываем кнопку после нажатия
+            let button = document.querySelector('button#show-stock-prices');
+            button.style.display = 'none';
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <button id="show-stock-prices" onclick="showStockPrices()">Курс акций Х5 Retail Group</button>
+        <table border="1" id="stock-table">
+            <tr>
+                <th>Дата</th>
+                <th>Цена акций</th>
+                <th>Разница</th>
+            </tr>
+        </table>
+        <div id="stock-detail"></div>
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>

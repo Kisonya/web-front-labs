@@ -28,7 +28,7 @@
         }
     </style>
     <script>
-        function changeColor(div) {
+        function changeColor(div) {  // Функция для смены цвета фона и текста div
             if (div.style.backgroundColor == 'yellow') {
                 div.style.backgroundColor = 'red';
                 div.style.color = 'white';
@@ -40,6 +40,11 @@
                 document.getElementById('color-name').innerHTML = 'чёрный';
             }
             else if (div.style.backgroundColor == 'black') {
+                div.style.backgroundColor = 'white';
+                div.style.color = 'black';
+                document.getElementById('color-name').innerHTML = 'белый';
+            }
+            else if (div.style.backgroundColor == 'white') {
                 div.style.backgroundColor = 'blue';
                 div.style.color = 'white';
                 document.getElementById('color-name').innerHTML = 'синий';
@@ -74,9 +79,10 @@
     </header>
 
     <main>
-        <div class="color" ondblclick="changeColor(this)">
+         <!-- Блок div, который изменяет цвет при двойном щелчке -->
+        <div class="color" onclick="changeColor(this)">
             Цвет: <span id="color-name">жёлтый</span><br>
-            Сделайте двойной щелчок, чтобы сменить.
+            Сделайте один щелчок, чтобы сменить.
         </div>
     </main>
 

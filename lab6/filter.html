@@ -18,11 +18,12 @@
     </style>
 
 <script>
-    function filter() {
+    function filter() { // Функция для фильтрации и изменения изображения одежды
+         // Получаем выбранные значения цвета и типа одежды
         let color = document.getElementById('wear-color').value;
         let type = document.getElementById('wear-type').value;
         let wear = document.getElementById('wear');
-        
+         // Определяем изображение на основе выбранных цвета и типа одежды
         if (color == 'Красный' && type == 'Футболка') {
             wear.src = 'red-f.jpg';
         }
@@ -51,6 +52,7 @@
             wear.src = 'black-m.jpg';
         }
         else {
+             // Если нет соответствия, очищаем src изображения
             wear.src = '';
         }
     }
@@ -77,9 +79,9 @@
                 <option>Поло</option>
                 <option>Майка</option>
             </select><br>
-        
+         <!-- Кнопка для запуска фильтрации -->
             <button onclick="filter()">OK</button><br>
-        
+         <!-- Изображение, которое будет изменяться -->
             <img id="wear" src="" alt="Изображение одежды">
         </div>
         

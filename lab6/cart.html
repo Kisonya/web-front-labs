@@ -34,7 +34,9 @@
 
     <main>
         <div>
+            <!-- Поле для ввода баланса пользователя -->
             <label>Мой баланс: <input type="number" id="balance" value="100"></label><br>
+              <!-- Таблица для ввода количества товаров -->
             <table>
                 <thead>
                     <tr>
@@ -92,6 +94,7 @@
 
     <script>
         function calculate() {
+            // Получаем значения баланса и количества товаров
             const balance = parseInt(document.getElementById('balance').value);
             const milk = parseInt(document.getElementById('milk').value);
             const bread = parseInt(document.getElementById('bread').value);
@@ -101,6 +104,7 @@
             const sugar = parseInt(document.getElementById('sugar').value);
             const tea = parseInt(document.getElementById('tea').value);
 
+// Устанавливаем цены на товары
             const milkPrice = 50;
             const breadPrice = 20;
             const butterPrice = 200;
@@ -108,22 +112,22 @@
             const eggsPrice = 30;
             const sugarPrice = 40;
             const teaPrice = 60;
-
+ // Расчет общей стоимости выбранных товаров
             const total = (milk * milkPrice) + (bread * breadPrice) + (butter * butterPrice) +
                           (cheese * cheesePrice) + (eggs * eggsPrice) + (sugar * sugarPrice) + (tea * teaPrice);
-            const resultDiv = document.getElementById('result');
+            const resultDiv = document.getElementById('result');  // Получаем элемент для отображения результата
 
-            if (milk < 0 || bread < 0 || butter < 0 || cheese < 0 || eggs < 0 || sugar < 0 || tea < 0) {
+            if (milk < 0 || bread < 0 || butter < 0 || cheese < 0 || eggs < 0 || sugar < 0 || tea < 0) { // Проверяем, чтобы количество товаров не было отрицательным
                 resultDiv.innerHTML = 'Количество товара не может быть отрицательным!';
                 return;
             }
 
             if (milk === 0 && bread === 0 && butter === 0 && cheese === 0 && eggs === 0 && sugar === 0 && tea === 0) {
-                resultDiv.innerHTML = 'Выберите хотя бы один товар!';
+                resultDiv.innerHTML = 'Выберите хотя бы один товар!'; // Проверяем, чтобы хотя бы один товар был выбран
                 return;
             }
 
-            if (total > balance) {
+            if (total > balance) { // Проверяем, хватает ли баланса для покупки
                 resultDiv.innerHTML = `Итог: ${total} ₽. У вас недостаточно денег!`;
             } else {
                 resultDiv.innerHTML = `Итог: ${total} ₽. Покупка успешна!`;

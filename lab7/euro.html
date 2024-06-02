@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторные 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+    <style>
+        /* Стили для блока, отображающего информацию о курсе евро */
+        #euro-rate {
+            border: 2px solid #000;
+            padding: 20px;
+            margin: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        #euro-rate h2 {
+            margin-top: 0;
+        }
+        #euro-rate p {
+            margin: 5px 0;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #d9534f;
+        }
+        #euro-rate a {
+            color: #1e90ff; /* Синий цвет */
+            text-decoration: none; /* Убираем подчеркивание */
+        }
+    </style>
+    <script>
+        // Функция для получения курса евро с сайта ЦБ РФ
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js'; // URL для получения JSON-данных
+            fetch(url) // Выполнение запроса на получение данных
+                .then(function(response) {
+                    return response.json(); // Преобразование ответа в формат JSON
+                })
+                .then(function(json) {
+                    // Получение текущего и предыдущего курса евро
+                    const currentRate = json.Valute.EUR.Value;
+                    const previousRate = json.Valute.EUR.Previous;
+                    const date = json.Date; // Получение даты запроса
+                    const rateDifference = (currentRate - previousRate).toFixed(4); // Вычисление разницы
+                    const rateMessage = rateDifference > 0 ? "поднялся" : "понизился"; // Определение сообщения о изменении курса
+
+                    // Заполнение блока информацией о курсе евро
+                    const euroRateDiv = document.getElementById('euro-rate');
+                    euroRateDiv.innerHTML = `
+                        <h2>Текущий курс евро</h2>
+                        <p>Дата запроса: ${new Date(date).toLocaleDateString()}</p>
+                        <p>Текущий курс: <span class="highlight">${currentRate.toFixed(4)}</span> руб.</p>
+                        <p>Курс за прошлую дату: ${previousRate.toFixed(4)} руб.</p>
+                        <p>Разница: ${rateDifference} руб. (${rateMessage})</p>
+                        <p>Источник: <a href="https://www.cbr-xml-daily.ru/" >cbr-xml-daily.ru</a></p>
+                    `;
+                })
+                .catch(function(error) {
+                    console.error('Error fetching the exchange rate:', error); // Обработка ошибки
+                });
+        }
+    </script>
+ 
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+
+    <main>
+        <!-- Кнопка для получения и отображения курса евро -->
+        <button onclick="getEuroExchangeRate()">Показать курс евро</button>
+        <!-- Блок для отображения информации о курсе евро -->
+        <div id="euro-rate"></div>
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>

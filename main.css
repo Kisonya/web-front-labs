@@ -31,7 +31,7 @@ div.menu:hover {
 }
 
 a {
-    color: green;
+    color: rgb(45, 0, 128);
     text-decoration: none;
     transition: 1s 2s;
 }
