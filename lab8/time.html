@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скобель Софья Валентиновна. Лабораторные 8</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../ico/favicon.ico">
+    <link rel="icon" href="../ico/favicon-32x32.png">
+    <link rel="icon" href="../ico/favicon-16x16.png">
+    <style>
+        #time {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            color: #4CAF50;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #seconds {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 72px;
+            color: #ff0000;
+        }
+    </style>
+    <script src="time.js"></script>
+</head>
+
+<body onload="showDate()">
+    <header>
+        НГТУ, ФБ, Лабораторная работа 8
+        <div id="time">00:00:00</div>
+    </header>
+
+    <main>
+        <div id="seconds">00</div>
+    </main>
+
+    <footer>
+        &copy; Софья Скобель, ФБИ-21, 2 курс, 2024
+    </footer>
+</body>
+</html>
