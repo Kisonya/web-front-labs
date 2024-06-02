@@ -18,12 +18,27 @@
 
     <main>
         <div id="current-date-ru"></div>
-            <div class="date-info">
+        <div class="date-info">
             <div id="current-year"></div>
             <div id="current-month"></div>
             <div id="current-date"></div>
             <div id="current-day"></div>
         </div>
+        
+        <div class="input-date">
+            <label for="input-day">День:</label>
+            <input type="number" id="input-day" min="1" max="31">
+            
+            <label for="input-month">Месяц:</label>
+            <input type="number" id="input-month" min="1" max="12">
+            
+            <label for="input-year">Год:</label>
+            <input type="number" id="input-year" min="1">
+            
+            <button onclick="showWeekday()">Определить день недели</button>
+        </div>
+        
+        <div id="weekday-result"></div>
     </main>
 
     <footer>
