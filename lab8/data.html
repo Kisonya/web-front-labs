@@ -17,28 +17,33 @@
     </header>
 
     <main>
-        <div id="current-date-ru"></div>
-        <div class="date-info">
+        <div id="current-date-ru"></div>  <!-- Элемент для отображения текущей даты на русском языке -->
+        <div class="date-info">  <!-- Блок информации о дате -->
+              <!-- Элемент для отображения текущего года -->
             <div id="current-year"></div>
+             <!-- Элемент для отображения текущего месяца -->
             <div id="current-month"></div>
+             <!-- Элемент для отображения текущего числа -->
             <div id="current-date"></div>
+             <!-- Элемент для отображения текущего дня недели -->
             <div id="current-day"></div>
         </div>
         
-        <div class="input-date">
-            <label for="input-day">День:</label>
+        <div class="input-date">  <!-- Блок ввода даты пользователем -->
+            <label for="input-day">День:</label>   <!-- Метка и поле для ввода дня -->
             <input type="number" id="input-day" min="1" max="31">
             
-            <label for="input-month">Месяц:</label>
+            <label for="input-month">Месяц:</label>  <!-- Метка и поле для ввода месяца -->
             <input type="number" id="input-month" min="1" max="12">
             
-            <label for="input-year">Год:</label>
+            <label for="input-year">Год:</label>     <!-- Метка и поле для ввода года -->
             <input type="number" id="input-year" min="1">
             
+              <!-- Кнопка для определения дня недели по введенной дате -->
             <button onclick="showWeekday()">Определить день недели</button>
         </div>
         
-        <div id="weekday-result"></div>
+        <div id="weekday-result"></div>  <!-- Элемент для отображения результата - дня недели -->
     </main>
 
     <footer>
